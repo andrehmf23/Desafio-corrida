@@ -29,6 +29,11 @@ public class TimeLap {
         }
     }
 
+    public void addTime(TimeLap time) {
+        this.minutes += time.minutes;
+        this.secunds += time.secunds;
+    }
+
     public String toString() {
         return minutes + ":" + secunds;
     }

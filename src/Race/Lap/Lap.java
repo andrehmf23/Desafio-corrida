@@ -9,19 +9,19 @@ public class Lap {
     private int lapNumber;
     private float averageLapTime;
 
-    public Lap(LocalTime time, String name, TimeLap lapTime, int lapNumber, float averageLapTime) {
+    public Lap(LocalTime time, String name, int lapNumber, TimeLap lapTime, float averageLapTime) {
         this.time = time;
         this.name = name;
-        this.lapTime = lapTime;
         this.lapNumber = lapNumber;
+        this.lapTime = lapTime;
         this.averageLapTime = averageLapTime;
     }
 
     public Lap(String time, String name, String lapNumber, String lapTime, String averageLapTime) {
         this.time = LocalTime.parse(time);
         this.name = name;
-        this.lapTime = new TimeLap(lapTime);
         this.lapNumber = Integer.parseInt(lapNumber);
+        this.lapTime = new TimeLap(lapTime);
         this.averageLapTime = Float.parseFloat(averageLapTime.trim().replace(",", "."));
     }
 
