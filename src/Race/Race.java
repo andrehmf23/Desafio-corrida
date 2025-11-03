@@ -2,6 +2,9 @@ package Race;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,8 +24,7 @@ public class Race {
         File file = new File("input.txt");
 
         try (Scanner reader = new Scanner(file)) {
-
-            if (reader.hasNextLine()) reader.nextLine();
+            if (reader.hasNextLine()) reader.nextLine(); // ignora o cabeçalho
 
             while (reader.hasNextLine()) {
                 String data = reader.nextLine();
@@ -76,9 +78,30 @@ public class Race {
             }
         }
 
-        
+        // Exibe no console
         for (Result res : result) {
             System.out.println(res.toString());
+        }
+
+        // Salva em arquivo output.txt
+        saveResultsToFile();
+    }
+
+    private void saveResultsToFile() {
+        File file = new File("output.txt");
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            writer.write("==== RESULTADOS DA CORRIDA ====\n\n");
+
+            for (Result res : result) {
+                writer.write(res.toString());
+                writer.newLine();
+            }
+
+            System.out.println("[Arquivo 'output.txt' gerado com sucesso]");
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar arquivo de saída.");
+            e.printStackTrace();
         }
     }
 

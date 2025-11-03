@@ -1,5 +1,6 @@
 package Race.Lap;
 
+// Estrutura de tempo
 public class TimeLap {
     private short minutes;
     private float secunds;

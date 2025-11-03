@@ -1,6 +1,7 @@
 
 package Race.Lap;
 
+// Classe responsavél pela saída
 public class Result {
 
     private short position;

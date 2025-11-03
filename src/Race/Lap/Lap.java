@@ -2,6 +2,7 @@ package Race.Lap;
 
 import java.time.LocalTime;
 
+// Classe responsavél pela entrada
 public class Lap {
     private LocalTime time;
     private String name;
